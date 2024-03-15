@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  grafana:
+    image: 'grafana/grafana-enterprise'
+    container_name: grafana
+    restart: unless-stopped
+    user: '0'
+    # ports:
+    # - '3000:3000'
+    volumes:
+      - /opt/stacks/grafana/data:/var/lib/grafana
+
+networks:
+  default:
+    external: true
+    name: nginx-expose
